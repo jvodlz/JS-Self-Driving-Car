@@ -3,7 +3,7 @@ function lerp(A,B,t){
     return A+(B-A)*t;
 }
 
-// Used: Beams move with car
+// Used: Sensors move with car
 function getIntersection(A,B,C,D){
     const tTop = (D.x-C.x) * (A.y-C.y) - (D.y-C.y) * (A.x-C.x);
     const uTop = (C.y-A.y) * (A.x-B.x) - (C.x-A.x) * (A.y-B.y);

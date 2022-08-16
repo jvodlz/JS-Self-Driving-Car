@@ -1,18 +1,24 @@
 class Controls{
-    constructor(){
+    constructor(type){
         this.forward=false;
         this.left=false;
         this.right=false;
         this.reverse=false;
     
-        // Add keyboard Listeners (# -> private)
-        this.#addKeyboardListeners();
+        switch(type){
+            case "KEYS":
+                this.#addKeyboardListeners();
+                break;
+            case "DUMMY":
+                this.forward=true;
+                break;
+        }
     }
 
+    // Pressing key (controlling car)
     #addKeyboardListeners(){
-        // Pressing key (controlling car)
-            // "(event)=> {" same as "function(event){..."
-                // However, any this.___ will refer to function() instead of Control obj's instances
+        // "(event)=> {" same as "function(event){..."
+            // However, any this.___ will refer to function() instead of Control obj's instances
         document.onkeydown=(event) => {
             switch(event.key){
                 case "ArrowLeft":
