@@ -27,7 +27,7 @@ function getIntersection(A,B,C,D){
 function polysIntersect(poly1, poly2){
     for(let i=0;i<poly1.length;i++){
         for(let j=0;j<poly2.length;j++){
-            const touch=getIntersection(
+            const touch = getIntersection(
                 poly1[i],
                 poly1[(i+1)%poly1.length], // Always connects poly; a cycle
                 poly2[j],
@@ -39,4 +39,19 @@ function polysIntersect(poly1, poly2){
         }
     }
     return false;
+}
+
+// Neural Link color:   Y=R+G=POS, Blue=NEG
+function getRGBA(value){
+    const alpha=Math.abs(value);
+    const R = value<0 ? 0:255;
+    const G=R;
+    const B = value>0 ? 0:255;
+    return "rgba("+R+","+G+","+B+","+alpha+")";
+}
+
+// Any color except Blue
+function getRandomColor(){
+    const hue = 290 + Math.random()*260;
+    return "hsl("+hue+", 100%, 60%";        // hue,saturation,lightness
 }

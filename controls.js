@@ -34,8 +34,6 @@ class Controls{
                     this.reverse=true;
                     break;
             }
-            // // Debug -- output obj in table form
-            // console.table(this);
         }
         // Releasing key (controlling car)
         document.onkeyup=(event) => {
@@ -53,8 +51,6 @@ class Controls{
                     this.reverse=false;
                     break;
             }
-            // // Debug -- output obj in table form
-            // console.table(this);
         }
     }
 }

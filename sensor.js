@@ -27,7 +27,7 @@ class Sensor{
         let touches=[]; // Road borders, polygon seg of traffic
 
         for(let i=0;i<roadBorders.length;i++){
-            const touch=getIntersection(
+            const touch = getIntersection(
                 ray[0],
                 ray[1],
                 roadBorders[i][0],
@@ -42,7 +42,7 @@ class Sensor{
         for(let i=0;i<traffic.length;i++){
             const poly=traffic[i].polygon;
             for(let j=0;j<poly.length;j++){
-                const value=getIntersection(
+                const value = getIntersection(
                     ray[0],
                     ray[1],
                     poly[j],
@@ -58,10 +58,10 @@ class Sensor{
             return null;
         } else{
             // get intersection gives: x,y,offset. Put ALL offsets in an arr
-            const offsets=touches.map(e=>e.offset);
+            const offsets = touches.map(e=>e.offset);
             // "..." Spreads arr into many val -> Identify min val (offset)
-            const minOffset=Math.min(...offsets);
-            return touches.find(e=>e.offset==minOffset);
+            const minOffset = Math.min(...offsets);
+            return touches.find(e => e.offset == minOffset);
         }
     }
 
@@ -69,14 +69,14 @@ class Sensor{
         this.rays=[];
         for(let i=0;i<this.rayCount;i++){
             // Uses rotated Unit Circle
-            const rayAngle=lerp(
+            const rayAngle = lerp(
                 this.raySpread/2,
                 -this.raySpread/2,
                this.rayCount==1 ? 0.5 : i/(this.rayCount-1)  // accounts for when rayCount==1 -> no divZero issue
                 )+this.car.angle;
 
-            const start={x:this.car.x, y:this.car.y};
-            const end={
+            const start = {x:this.car.x, y:this.car.y};
+            const end = {
                 x:this.car.x- 
                     Math.sin(rayAngle)*this.rayLength,
                 y:this.car.y- 
